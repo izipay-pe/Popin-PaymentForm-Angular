@@ -1,0 +1,94 @@
+<section class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="row">
+    <div class="left-column col-md-6">
+      <section class="customer-details">
+        <h2>Datos del cliente</h2>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="firstName">Nombre</label>
+            <input id="firstName" class="form-control" formControlName="firstName" placeholder="Nombre" required />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Apellido</label>
+            <input id="lastName" class="form-control" formControlName="lastName" placeholder="Apellido" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email" required />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Teléfono</label>
+          <input id="phoneNumber" type="tel" class="form-control" formControlName="phoneNumber" placeholder="999999999" required />
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="identityType">Tipo de Documento</label>
+            <select id="identityType" class="form-control" formControlName="identityType">
+              <option value="DNI">DNI</option>
+              <option value="PS">Pasaporte</option>
+              <option value="CE">Carné de Extranjería</option>
+            </select>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="identityCode">Documento</label>
+            <input id="identityCode" class="form-control" formControlName="identityCode" placeholder="Doc. Identidad" required />
+          </div>
+        </div>
+      </section>
+      <section class="billing-details">
+        <h2>Datos de envío</h2>
+        <div class="form-group">
+          <label for="address">Dirección</label>
+          <input id="address" class="form-control" formControlName="address" placeholder="Calle y número" required />
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="country">País</label>
+            <select id="country" class="form-control" formControlName="country">
+              <option value="PE">Perú</option>
+              <option value="AR">Argentina</option>
+              <option value="CL">Chile</option>
+              <option value="CO">Colombia</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="state">Departamento</label>
+            <input id="state" class="form-control" formControlName="state" placeholder="Departamento" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="city">Distrito</label>
+            <input id="city" class="form-control" formControlName="city" placeholder="Distrito" required />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="zipCode">Código Postal</label>
+            <input id="zipCode" class="form-control" formControlName="zipCode" placeholder="15021" required />
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="right-column col-md-6">
+      <section class="billing-details">
+        <h2>Datos del pago</h2>
+        <div class="form-group">
+          <label for="orderId">Order-id</label>
+          <input id="orderId" class="form-control" formControlName="orderId" placeholder="Order" required />
+        </div>
+        <div class="form-group">
+          <label for="amount">Monto</label>
+          <input id="amount" type="number" class="form-control" formControlName="amount" placeholder="0.00" required />
+        </div>
+        <div class="form-group">
+          <label for="currency">Moneda</label>
+          <select id="currency" class="form-control" formControlName="currency">
+            <option value="PEN">Soles</option>
+            <option value="USD">Dólares</option>
+          </select>
+        </div>
+      </section>
+      <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Pagar</button>
+    </div>
+  </form>
+</section>
